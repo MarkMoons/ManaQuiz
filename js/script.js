@@ -18,6 +18,13 @@ function checkAntwoord()
     gebruikersAntwoord = $('#antwoordInput').val();
     console.log(gebruikersAntwoord);
     console.log(goedAntwoord);
+    if (goedAntwoord == "Tinker" && gebruikersAntwoord == "zul"){
+        console.log("lol");
+        $('body').css('background-image', 'url(./images/random/zul.jpg)');
+        document.getElementById('foto').src = "./images/random/zul.jpg";
+
+        return
+    }
     if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
         console.log("goed");
         score += 1;
