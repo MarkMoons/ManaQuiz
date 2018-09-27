@@ -1,6 +1,6 @@
 var Dieren = ["Paarden", "Varkens", "Schapen", "Runden", "Geiten", "Overige"];
 var Paarden = ["Tinker", "Haflinger", "Shetlandpony", "Appaloosa", "Arabier", "Belgisch Trekpaard", "Fjord", "Fries", "Falabella", "Koninklijk Warmbloed Paard Nederland", "Lipizzaner", "Przewalskipaard", "Shire", "Welsh Pony", "IJslander", "Ezel"];
-var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hangbuikzwijn", "Nederlands Landras", "Large White", "Durco", "Bonte Bentheimer", "Kune-Kune", "Meishan"];
+var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hangbuikzwijn", "Nederlands Landras", "Large White", "Duroc", "Bonte Bentheimer", "Kune-Kune", "Meishan"];
 var Schapen = ["Swifter", "Rackaschaap", "Texelaar", "Coburger Fuchs", "Hampshire Down", "Mergellander", "Kameroenschaap", "Ouessantschaap", "Suffolk", "Zwartbles", "Merino"];
 var Runden = ["Lakenvelder", "Witrik", "Groninger Blaarkop", "Maas-Rijn-IJssel", "Holstein-Friesian", "Yersey", "Dexter", "Zeboe", "Belgische Blauwe", "Limousin", "Aberdeen Angus", "Schotse Hooglander"]
 var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Boergeit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
@@ -13,7 +13,7 @@ var randomDier = "";
 
 function checkAntwoord()
 {
-    //hideGoedAntwoord();
+    hideGoedAntwoord();
     hideCheck();
     gebruikersAntwoord = $('#antwoordInput').val();
     console.log(gebruikersAntwoord);
@@ -30,37 +30,42 @@ function checkAntwoord()
 
         if (randomDier == "Paarden") {
             Paarden.splice(Paarden.indexOf(goedAntwoord), 1)
+            getFoto();
         }
         else if (randomDier == "Varkens") {
             Varkens.splice(Varkens.indexOf(goedAntwoord), 1)
+            getFoto();
         }
         else if (randomDier == "Schapen") {
             Schapen.splice(Schapen.indexOf(goedAntwoord), 1)
+            getFoto();
         }
         else if (randomDier == "Runden") {
             Runden.splice(Runden.indexOf(goedAntwoord), 1)
+            getFoto();
         }
         else if (randomDier == "Geiten") {
             Geiten.splice(Geiten.indexOf(goedAntwoord), 1)
+            getFoto();
         }
         else if (randomDier == "Overige") {
             Overige.splice(Overige.indexOf(goedAntwoord), 1)
+            getFoto();
         }
 
 
     } else {
         console.log("fout");
         document.getElementById('checkFoto').src = './images/random/fout.png';
+        $('#antwoordInput').val("");
         showCheck();
-        //showGoedAntwoord();
+        showGoedAntwoord();
+
     }
     if (score == 62){
         console.log("Compleet");
         showPopup();
-        return
     }
-
-    getFoto();
 };
 
 function showCheck(){
@@ -136,6 +141,14 @@ function showPopup() {
 
 function afronden(){
     location.reload()
+};
+
+function showGoedAntwoord(){
+    $('#goedAntwoordText').text(goedAntwoord);
+};
+
+function hideGoedAntwoord(){
+    $('#goedAntwoordText').text('');
 };
 
 getFoto();
