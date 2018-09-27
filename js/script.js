@@ -20,8 +20,8 @@ function checkAntwoord()
     console.log(goedAntwoord);
     if (goedAntwoord == "Tinker" && gebruikersAntwoord == "zul"){
         console.log("lol");
-        $('body').css('background-image', 'url(./images/random/zul.jpg)');
-        document.getElementById('foto').src = "./images/random/zul.jpg";
+        $('body').css('background-image', 'url(./images/random/zul1.jpg)');
+        document.getElementById('foto').src = "./images/random/zul1.jpg";
 
         return
     }
