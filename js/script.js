@@ -3,7 +3,7 @@ var Paarden = ["Tinker", "Haflinger", "Shetlandpony", "Appaloosa", "Arabier", "B
 var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hangbuikzwijn", "Nederlands Landras", "Large White", "Durco", "Bonte Bentheimer", "Kune-Kune", "Meishan"];
 var Schapen = ["Swifter", "Rackaschaap", "Texelaar", "Coburger Fuchs", "Hampshire Down", "Mergellander", "Kameroenschaap", "Ouessantschaap", "Suffolk", "Zwartbles", "Merino"];
 var Runden = ["Lakenvelder", "Witrik", "Groninger Blaarkop", "Maas-Rijn-IJssel", "Holstein-Friesian", "Yersey", "Dexter", "Zeboe", "Belgische Blauwe", "Limousin", "Aberdeen Angus", "Schotse Hooglander"]
-var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Geit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
+var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Boergeit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
 var Overige = ["Alpaca", "Lama", "Damhert"]
 var vragenKlaar = [];
 var goedAntwoord = "";
@@ -13,6 +13,7 @@ var randomDier = "";
 
 function checkAntwoord()
 {
+    hideGoedAntwoord();
     hideCheck();
     gebruikersAntwoord = $('#antwoordInput').val();
     console.log(gebruikersAntwoord);
@@ -46,15 +47,20 @@ function checkAntwoord()
             Overige.splice(Overige.indexOf(goedAntwoord), 1)
         }
 
-        getFoto();
+
     } else {
         console.log("fout");
         document.getElementById('checkFoto').src = './images/random/fout.png';
         showCheck();
+        showGoedAntwoord();
     }
     if (score == 62){
         console.log("Compleet");
+        showPopup();
+        return
     }
+
+    getFoto();
 };
 
 function showCheck(){
@@ -121,6 +127,15 @@ function handle(e){
     if (e.keyCode === 13){
         checkAntwoord();
     }
+};
+
+function showPopup() {
+    $(".popup").css('display') == 'block'
+    $(".popup").show();
+}
+
+function afronden(){
+    location.reload()
 };
 
 getFoto();

@@ -21,16 +21,6 @@ img {
                                   supported by Chrome and Opera */
 }
 
-.antwoordVeld {
-    position: absolute;
-    height: 40%;
-    width: 40%;
-    top: 30%;
-    left: 8%;
-    border: 4px solid black;
-    background-color: silver;
-}
-
 .fotoVeld {
     position: absolute;
     height: 60%;
@@ -41,30 +31,33 @@ img {
     background-color: lightskyblue;
 }
 
-#antwoordInput {
+.antwoordVeld {
     position: absolute;
+    height: 40%;
+    width: 40%;
+    top: 30%;
+    left: 8%;
+    border: 4px solid black;
+    background-color: silver;
+    text-align: center;
+}
+
+#antwoordInput {
     width: 90%;
     height: 15%;
-    top: 40%;
-    left: 5%;
+    margin-top: 5%;
     font-size: 250%;
 }
 
 #antwoordKnop {
-    position: absolute;
     width: 30%;
     height: 15%;
-    top: 60%;
-    left: 34%;
+    margin-top: 5%;
     font-size: 150%;
 }
 
-.antwoordText {
-    position: absolute;
-    width: 70%;
-    height: 10%;
-    top: 15%;
-    left: 25%;
+#antwoordText {
+    margin-top: 10%;
     font-size: 200%;
 }
 
@@ -87,7 +80,33 @@ img {
 
 #scoreText {
     font-size: 200%;
-    position: absolute;
     top: 1%;
     left: 1%;
+    position: absolute;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 35%;
+    width: 30%;
+    background: slategray;
+    border: 4px black solid;
+    text-align: center;
+}
+
+#popupText {
+    font-size: 300%;
+    margin-top: 20%;
+    color: greenyellow;
+}
+
+#popupKnop {
+    width: 20%;
+    height: 15%;
+    font-size: 200%;
 }
