@@ -13,7 +13,7 @@ var randomDier = "";
 
 function checkAntwoord()
 {
-    hideGoedAntwoord();
+    //hideGoedAntwoord();
     hideCheck();
     gebruikersAntwoord = $('#antwoordInput').val();
     console.log(gebruikersAntwoord);
@@ -52,7 +52,7 @@ function checkAntwoord()
         console.log("fout");
         document.getElementById('checkFoto').src = './images/random/fout.png';
         showCheck();
-        showGoedAntwoord();
+        //showGoedAntwoord();
     }
     if (score == 62){
         console.log("Compleet");
