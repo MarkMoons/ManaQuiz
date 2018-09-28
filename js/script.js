@@ -14,7 +14,6 @@ var randomDier = "";
 function checkAntwoord()
 {
     hideGoedAntwoord();
-    hideCheck();
     gebruikersAntwoord = $('#antwoordInput').val();
     console.log(gebruikersAntwoord);
     console.log(goedAntwoord);
@@ -27,37 +26,40 @@ function checkAntwoord()
     }
     if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
         console.log("goed");
-        score += 1;
-        $('#score').html(score);
         $('#antwoordInput').val("");
         document.getElementById('checkFoto').src = './images/random/goed.png';
         showCheck();
-
-        vragenKlaar.push(goedAntwoord);
+        setTimeout(function (){ $("#checkFoto").hide();  $("#checkFoto").css('display') == 'none' }, 1000);
 
         if (randomDier == "Paarden") {
-            Paarden.splice(Paarden.indexOf(goedAntwoord), 1)
-            getFoto();
+            Paarden.splice(Paarden.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
         else if (randomDier == "Varkens") {
-            Varkens.splice(Varkens.indexOf(goedAntwoord), 1)
-            getFoto();
+            Varkens.splice(Varkens.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
         else if (randomDier == "Schapen") {
-            Schapen.splice(Schapen.indexOf(goedAntwoord), 1)
-            getFoto();
+            Schapen.splice(Schapen.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
         else if (randomDier == "Runden") {
-            Runden.splice(Runden.indexOf(goedAntwoord), 1)
-            getFoto();
+            Runden.splice(Runden.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
         else if (randomDier == "Geiten") {
-            Geiten.splice(Geiten.indexOf(goedAntwoord), 1)
-            getFoto();
+            Geiten.splice(Geiten.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
         else if (randomDier == "Overige") {
-            Overige.splice(Overige.indexOf(goedAntwoord), 1)
-            getFoto();
+            Overige.splice(Overige.indexOf(goedAntwoord), 1);
+            pushKlaar();
+            checkCompleet();
         }
 
 
@@ -66,12 +68,10 @@ function checkAntwoord()
         document.getElementById('checkFoto').src = './images/random/fout.png';
         $('#antwoordInput').val("");
         showCheck();
-        showGoedAntwoord();
+        showGoedAntwoord()
+        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord2();" );
+        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle1(event);" );
 
-    }
-    if (score == 62){
-        console.log("Compleet");
-        showPopup();
     }
 };
 
@@ -131,13 +131,20 @@ function getFoto()
         goedAntwoord = randomOverige;
 
     } else {
-        console.log("fout");
+        console.log("fout dier");
+        getFoto();
     }
 };
 
 function handle(e){
     if (e.keyCode === 13){
         checkAntwoord();
+    }
+};
+
+function handle1(e){
+    if (e.keyCode === 13){
+        checkAntwoord2();
     }
 };
 
@@ -156,6 +163,52 @@ function showGoedAntwoord(){
 
 function hideGoedAntwoord(){
     $('#goedAntwoordText').text('');
+};
+
+function checkAntwoord2(){
+    hideGoedAntwoord();
+    gebruikersAntwoord = $('#antwoordInput').val();
+    console.log(gebruikersAntwoord);
+    console.log(goedAntwoord);
+
+    if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
+        console.log("goed");
+        $('#antwoordInput').val("");
+        document.getElementById('checkFoto').src = './images/random/goed.png';
+        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord();" );
+        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle(event);" );
+        showCheck();
+        setTimeout(function (){ $("#checkFoto").hide();  $("#checkFoto").css('display') == 'none' }, 1000);
+        getFoto();
+
+    } else {
+        console.log("fout");
+        document.getElementById('checkFoto').src = './images/random/fout.png';
+        $('#antwoordInput').val("");
+        showCheck();
+        showGoedAntwoord()
+        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord2();" );
+        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle1(event);" );
+    }
+};
+
+function pushKlaar(){
+    if (vragenKlaar.includes(goedAntwoord)) {
+        console.log("zit al in lijst");
+    } else {
+        vragenKlaar.push(goedAntwoord);
+        score = vragenKlaar.length;
+        $('#score').html(score);
+    }
+};
+
+function checkCompleet(){
+    if (score == 62 && vragenKlaar.length == 62){
+        console.log("Compleet");
+        showPopup();
+    } else {
+        getFoto();
+    }
 };
 
 getFoto();
