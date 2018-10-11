@@ -35,11 +35,8 @@ function checkAntwoord()
         return
     }
 
-<<<<<<< HEAD
+
     if (goedAntwoord === "Lama" && gebruikersAntwoord === "fortnite"){
-=======
-    if (goedAntwoord == "Lama" && gebruikersAntwoord == "fortnite"){
->>>>>>> 02453d39f23c48e991df59fbcc48c9874b7e314d
         console.log("FORTNITE");
         $('body').css('background-image', 'url(./images/random/fortnite.gif)');
         document.getElementById('foto').src = "./images/random/fortnite.jpg";
@@ -50,11 +47,8 @@ function checkAntwoord()
         return
     }
 
-<<<<<<< HEAD
+
     if (gebruikersAntwoord === goedAntwoord ||  gebruikersAntwoord === goedAntwoord.toLowerCase()){
-=======
-    if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
->>>>>>> 02453d39f23c48e991df59fbcc48c9874b7e314d
         console.log("goed");
         $('#antwoordInput').val("");
         document.getElementById('checkFoto').src = './images/random/goed.png';
