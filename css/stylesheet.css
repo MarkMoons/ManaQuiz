@@ -132,7 +132,6 @@ button {
 }
 
 #blok1Knop {
-<<<<<<< HEAD
     font-size: 200%;
 }
 
@@ -192,56 +191,4 @@ button {
     left: 2%;
     position: absolute;
     cursor: pointer;
-=======
-    font-size: 200%;
-}
-
-#blok2Knop {
-    font-size: 200%;
-    margin-left: 10%;
-}
-
-#radioText {
-    text-align: center;
-    font-size: 250%;
-    margin-top: 8%;
-}
-
-#startQuiz1 {
-    margin-top: 5%;
-    font-size: 80%;
-}
-
-#startQuiz2 {
-    margin-top: 5%;
-    font-size: 80%;
-}
-
-#radioDierenBlok1 {
-    font-size: 150%;
-    margin-left: 48%;
-}
-
-#radioDierenBlok2 {
-    font-size: 150%;
-    margin-left: 48%;
-}
-
-.passwordVeld {
-    position: absolute;
-    top: 30%;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
-    text-align: center;
-}
-
-#passwordText {
-    font-size: 200%;
-}
-
-#aasgierenText {
-    margin-top: -2%;
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
 }

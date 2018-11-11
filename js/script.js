@@ -3,7 +3,7 @@ var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hang
 var Schapen = ["Swifter", "Rackaschaap", "Texelaar", "Coburger Fuchs", "Hampshire Down", "Mergellander", "Kameroenschaap", "Ouessantschaap", "Suffolk", "Zwartbles", "Merino"];
 var Runden = ["Lakenvelder", "Witrik", "Groninger Blaarkop", "Maas-Rijn-IJssel", "Holstein-Friesian", "Yersey", "Dexter", "Zeboe", "Belgische Blauwe", "Limousin", "Aberdeen Angus", "Schotse Hooglander"]
 var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Boergeit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
-var Overige = ["Alpaca", "Lama", "Damhert"]
+var Overige = ["Alpaca", "Lama", "Damhert"];
 
 var Konijnen = ["Angora", "Belgische Haas", "Duitse Hangoor", "Eksterkonijn", "Engelse Hangoor", "Franse Hangoor", "Groot Chinchilla", "Groot Lotharinger", "Hollander", "Japanner", "Kleurdwerg", "Nederlandse Hangoordwerg", "Papillon", "Pool", "Rex", "Rijnlander", "Rus", "Satijn", "Tan", "Thrianta", "Vlaamse Reus", "Voskonijn", "Witte Nieuw Zeelander", "Witte Van Hotot"];
 var Knaagdieren = ["Cavia Borstelhaar", "Cavia Gladhaar", "Cavia Rex", "Cavia Satijn", "Cavia Sheltie", "Cavia Amerikaanse Gekruind", "Cavia Tessel", "Chinchilla", "Degoe Wildkleur", "Dikstaartgerbil", "Kleurmuis", "Mongoolse Gerbil", "Roborovski Dwerghamster", "Russische Dwerghamster", "Syrische Dwerghamster", "Tamme Rat", "Chinese Dwerghamster", "Boeroendoek", "Sugarglider", "Japanse Eekhoorn", "Veeltepelmuis"];
@@ -35,10 +35,6 @@ function checkAntwoord()
         return
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     if (goedAntwoord === "Lama" && gebruikersAntwoord === "fortnite"){
         console.log("FORTNITE");
         $('body').css('background-image', 'url(./images/random/fortnite.gif)');
@@ -50,10 +46,6 @@ function checkAntwoord()
         return
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     if (gebruikersAntwoord === goedAntwoord ||  gebruikersAntwoord === goedAntwoord.toLowerCase()){
         console.log("goed");
         $('#antwoordInput').val("");
@@ -235,15 +227,12 @@ function startQuiz(){
     $(".radio").hide();
     $(".selectBlok").css('display') == 'none'
     $(".selectBlok").hide();
-<<<<<<< HEAD
     $("#radioDierenBlok1").css('display') == 'none'
     $("#radioDierenBlok1").hide();
     $("#radioDierenBlok2").css('display') == 'none'
     $("#radioDierenBlok2").hide();
     $(".radio").css('display') == 'none'
     $(".radio").hide();
-=======
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     $(".main").css('display') == 'block'
     $(".main").show();
 
@@ -320,7 +309,6 @@ function checkPassword(){
     }
 }
 
-<<<<<<< HEAD
 function goBack(){
     $("#radioDierenBlok1").css('display') == 'none'
     $("#radioDierenBlok1").hide();
@@ -332,16 +320,10 @@ function goBack(){
     $(".selectBlok").show();
 }
 
-=======
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
 function getIP(){
     var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
 
     //findIP.then(ip => document.write('your ip: ', ip, Date())).catch(e => console.error(e))
 }
 
-<<<<<<< HEAD
 //getIP();
-=======
-//getIP();
->>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
