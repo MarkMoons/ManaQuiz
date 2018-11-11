@@ -83,16 +83,23 @@ button {
 
 #score {
     font-size: 200%;
-    position: absolute;
-    top: 12%;
-    left: 8%;
+    display: inline;
+    position: center;
+    text-align: center;
 }
 
-#scoreText {
+.scoreText {
     font-size: 200%;
-    top: 12%;
-    left: 1%;
-    position: absolute;
+    display: inline;
+    position: center;
+    text-align: center;
+}
+
+#totaalPunten{
+    font-size: 200%;
+    display: inline;
+    position: center;
+    text-align: center;
 }
 
 .popup {
@@ -116,6 +123,12 @@ button {
 }
 
 #popupKnop {
+    width: 30%;
+    height: 15%;
+    font-size: 150%;
+}
+
+#popupKnop2 {
     width: 30%;
     height: 15%;
     font-size: 150%;
@@ -187,7 +200,7 @@ button {
 #terugFoto {
     max-width: 5%;
     max-height: 10%;
-    top: 4%;
+    top: 10%;
     left: 2%;
     position: absolute;
     cursor: pointer;

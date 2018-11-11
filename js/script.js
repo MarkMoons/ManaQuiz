@@ -1,15 +1,29 @@
+//Dieren blok 1//
 var Paarden = ["Tinker", "Haflinger", "Shetlandpony", "Appaloosa", "Arabier", "Belgisch Trekpaard", "Fjord", "Fries", "Falabella", "Koninklijk Warmbloed Paard Nederland", "Lipizzaner", "Przewalskipaard", "Shire", "Welsh Pony", "IJslander", "Ezel"];
 var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hangbuikzwijn", "Nederlands Landras", "Large White", "Duroc", "Bonte Bentheimer", "Kune-Kune", "Meishan"];
 var Schapen = ["Swifter", "Rackaschaap", "Texelaar", "Coburger Fuchs", "Hampshire Down", "Mergellander", "Kameroenschaap", "Ouessantschaap", "Suffolk", "Zwartbles", "Merino"];
 var Runden = ["Lakenvelder", "Witrik", "Groninger Blaarkop", "Maas-Rijn-IJssel", "Holstein-Friesian", "Yersey", "Dexter", "Zeboe", "Belgische Blauwe", "Limousin", "Aberdeen Angus", "Schotse Hooglander"]
 var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Boergeit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
 var Overige = ["Alpaca", "Lama", "Damhert"];
+var PaardenBackup = Paarden.slice()
+var VarkensBackup = Varkens.slice()
+var SchapenBackup = Schapen.slice()
+var RundenBackup = Runden.slice()
+var GeitenBackup = Geiten.slice()
+var OverigeBackup = Overige.slice()
 
+//Dieren blok 2//
 var Konijnen = ["Angora", "Belgische Haas", "Duitse Hangoor", "Eksterkonijn", "Engelse Hangoor", "Franse Hangoor", "Groot Chinchilla", "Groot Lotharinger", "Hollander", "Japanner", "Kleurdwerg", "Nederlandse Hangoordwerg", "Papillon", "Pool", "Rex", "Rijnlander", "Rus", "Satijn", "Tan", "Thrianta", "Vlaamse Reus", "Voskonijn", "Witte Nieuw Zeelander", "Witte Van Hotot"];
 var Knaagdieren = ["Cavia Borstelhaar", "Cavia Gladhaar", "Cavia Rex", "Cavia Satijn", "Cavia Sheltie", "Cavia Amerikaanse Gekruind", "Cavia Tessel", "Chinchilla", "Degoe Wildkleur", "Dikstaartgerbil", "Kleurmuis", "Mongoolse Gerbil", "Roborovski Dwerghamster", "Russische Dwerghamster", "Syrische Dwerghamster", "Tamme Rat", "Chinese Dwerghamster", "Boeroendoek", "Sugarglider", "Japanse Eekhoorn", "Veeltepelmuis"];
 var Herpeten = ["Griekse Landschildpad", "Roodwangschildpad", "Geelwangschildpad", "Rode Rattenslang", "Koningspython", "Afgodslang", "Groene Leguaan", "Baardagaam", "Luipaardgekko", "Pijlgifkikker", "Vuurbuikpadje", "Mexicaanse Roodknievogelspin"];
 var Vissen = ["Goudvis", "Sluierstaart", "Koi", "Goudwinde", "Guppy", "Zwaarddrager", "Platy", "Black Mollie", "Neontetra", "Kardinaaltetra", "Sumatraan", "Maanvis", "Discusvis", "Kempvis", "Pantsermeerval"];
+var DierenBlok2 = ["Konijnen", "Knaagdieren", "Herpeten", "Vissen"]
+var KonijnenBackup = Konijnen.slice()
+var KnaagdierenBackup = Knaagdieren.slice()
+var HerpetenBackup = Herpeten.slice()
+var VissenBackup = Vissen.slice()
 
+//Overig//
 var huidigBlok = 0;
 var vragenKlaar = [];
 var goedAntwoord = "";
@@ -17,7 +31,6 @@ var gebruikersAntwoord = "";
 var score = 0;
 var randomDier = "";
 var totaalPunten = 0;
-
 var Dieren = [];
 
 //Functions//
@@ -99,80 +112,101 @@ function checkAntwoord2(){
 
 function getFoto()
 {
-    if (vragenKlaar.length !== totaalPunten) {
         randomDier = Dieren[Math.floor(Math.random() * Dieren.length)];
         var randomGetal = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
         console.log(randomDier);
         if (randomDier == "Paarden" && Paarden.length !== 0) {
             var randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
-            while (vragenKlaar.includes(randomPaard)) {
-                randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
-            }
+            //while (vragenKlaar.includes(randomPaard)) {
+            //    randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
+            //}
             console.log(randomPaard)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomPaard + '/' + randomPaard + randomGetal + '.jpg';
             goedAntwoord = randomPaard;
-
         } else if (randomDier == "Varkens" && Varkens.length !== 0) {
             var randomVarken = Varkens[Math.floor(Math.random() * Varkens.length)];
+            //while (vragenKlaar.includes(randomVarken)) {
+            //    randomVarken = Varkens[Math.floor(Math.random() * Varkens.length)];
+            //}
             console.log(randomVarken)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomVarken + '/' + randomVarken + randomGetal + '.jpg';
             goedAntwoord = randomVarken;
 
         } else if (randomDier == "Schapen" && Schapen.length !== 0) {
             var randomSchaap = Schapen[Math.floor(Math.random() * Schapen.length)];
+            //while (vragenKlaar.includes(randomSchaap)) {
+            //    randomSchaap = Schapen[Math.floor(Math.random() * Schapen.length)];
+            //}
             console.log(randomSchaap)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomSchaap + '/' + randomSchaap + randomGetal + '.jpg';
             goedAntwoord = randomSchaap;
 
         } else if (randomDier == "Runden" && Runden.length !== 0) {
             var randomRund = Runden[Math.floor(Math.random() * Runden.length)];
+            //while (vragenKlaar.includes(randomRund)) {
+            //    randomRund = Runden[Math.floor(Math.random() * Runden.length)];
+            //}
             console.log(randomRund)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomRund + '/' + randomRund + randomGetal + '.jpg';
             goedAntwoord = randomRund;
 
         } else if (randomDier == "Geiten" && Geiten.length !== 0) {
             var randomGeit = Geiten[Math.floor(Math.random() * Geiten.length)];
+            //while (vragenKlaar.includes(randomGeit)) {
+            //    randomGeit = Geiten[Math.floor(Math.random() * Geiten.length)];
+            //}
             console.log(randomGeit)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomGeit + '/' + randomGeit + randomGetal + '.jpg';
             goedAntwoord = randomGeit;
 
         } else if (randomDier == "Overige" && Overige.length !== 0) {
             var randomOverige = Overige[Math.floor(Math.random() * Overige.length)];
+            //while (vragenKlaar.includes(randomOverige)) {
+            //    randomOverige = Overige[Math.floor(Math.random() * Overige.length)];
+            //}
             console.log(randomOverige)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomOverige + '/' + randomOverige + randomGetal + '.jpg';
             goedAntwoord = randomOverige;
 
         } else if (randomDier == "Konijnen" && Konijnen.length !== 0) {
             var randomKonijnen = Konijnen[Math.floor(Math.random() * Konijnen.length)];
+            //while (vragenKlaar.includes(randomKonijnen)) {
+            //    randomKonijnen = Konijnen[Math.floor(Math.random() * Konijnen.length)];
+            //}
             console.log(randomKonijnen)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomKonijnen + '/' + randomKonijnen + randomGetal + '.jpg';
             goedAntwoord = randomKonijnen;
 
         } else if (randomDier == "Knaagdieren" && Knaagdieren.length !== 0) {
             var randomKnaagdieren = Knaagdieren[Math.floor(Math.random() * Knaagdieren.length)];
+            //while (vragenKlaar.includes(randomKnaagdieren)) {
+            //    randomKnaagdieren = Knaagdieren[Math.floor(Math.random() * Knaagdieren.length)];
+            //}
             console.log(randomKnaagdieren)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomKnaagdieren + '/' + randomKnaagdieren + randomGetal + '.jpg';
             goedAntwoord = randomKnaagdieren;
 
         } else if (randomDier == "Herpeten" && Herpeten.length !== 0) {
             var randomHerpeten = Herpeten[Math.floor(Math.random() * Herpeten.length)];
+            //while (vragenKlaar.includes(randomHerpeten)) {
+            //    randomHerpeten = Herpeten[Math.floor(Math.random() * Herpeten.length)];
+            //}
             console.log(randomHerpeten)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomHerpeten + '/' + randomHerpeten + randomGetal + '.jpg';
             goedAntwoord = randomHerpeten;
 
         } else if (randomDier == "Vissen" && Vissen.length !== 0) {
             var randomVissen = Vissen[Math.floor(Math.random() * Vissen.length)];
+            //while (vragenKlaar.includes(randomVissen)) {
+            //    randomVissen = Vissen[Math.floor(Math.random() * Vissen.length)];
+            //}
             console.log(randomVissen)
             document.getElementById('foto').src = './images/' + randomDier + '/' + randomVissen + '/' + randomVissen + randomGetal + '.jpg';
             goedAntwoord = randomVissen;
 
         } else {
-            console.log("fout dier")
             checkCompleet();
         }
-    } else {
-        showPopup();
-    }
 };
 
 function pushKlaar(){
@@ -239,7 +273,7 @@ function startQuiz(){
     for (var i=0 ; i<Dieren.length;i++){
         totaalPunten += window[Dieren[i]].length;
     }
-
+    $('#totaalPunten').html(totaalPunten);
     getFoto();
 }
 
@@ -264,6 +298,23 @@ function hideGoedAntwoord(){
 function afronden(){
     location.reload()
 };
+
+function opnieuw(){
+    for (i = 0; i<Dieren.length; i++){
+        var x = Dieren[i]+"Backup"
+        window[Dieren[i]] = window[x].slice();
+        console.log(Dieren[i])
+    }
+    vragenKlaar = [];
+    score = 0;
+
+    $('#score').html(score);
+    $(".popup").css('display') == 'none'
+    $(".popup").hide();
+
+    getFoto()
+
+}
 
 function handle(e){
     if (e.keyCode === 13){
@@ -319,11 +370,3 @@ function goBack(){
     $(".selectBlok").css('display') == 'block'
     $(".selectBlok").show();
 }
-
-function getIP(){
-    var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
-
-    //findIP.then(ip => document.write('your ip: ', ip, Date())).catch(e => console.error(e))
-}
-
-//getIP();

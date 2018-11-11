@@ -47,13 +47,14 @@
         </div>
 
         <div class="score">
-            <p id="scoreText">Score:</p>
-            <p id="score">0</p>
+            <p class="scoreText">Score: </p>
+            <p id="score">0</p> <p class="scoreText">/</p> <p id="totaalPunten">0</p>
         </div>
 
         <div class="popup" style="display: none;">
             <p id="popupText">Gefeliciteerd pik, een voldoende!</p>
-            <button id="popupKnop" type="button" onclick="afronden()">Thanks!</button>
+            <button id="popupKnop" type="button" onclick="afronden()">Afsluiten</button>
+            <button id="popupKnop2" type="button" onclick="opnieuw()">Opnieuw</button>
         </div>
 
         <img id="terugFoto" src="./images/random/terug.png" onclick="afronden()">
