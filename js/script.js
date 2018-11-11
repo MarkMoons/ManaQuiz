@@ -35,6 +35,10 @@ function checkAntwoord()
         return
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     if (goedAntwoord === "Lama" && gebruikersAntwoord === "fortnite"){
         console.log("FORTNITE");
         $('body').css('background-image', 'url(./images/random/fortnite.gif)');
@@ -46,6 +50,10 @@ function checkAntwoord()
         return
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     if (gebruikersAntwoord === goedAntwoord ||  gebruikersAntwoord === goedAntwoord.toLowerCase()){
         console.log("goed");
         $('#antwoordInput').val("");
@@ -227,12 +235,15 @@ function startQuiz(){
     $(".radio").hide();
     $(".selectBlok").css('display') == 'none'
     $(".selectBlok").hide();
+<<<<<<< HEAD
     $("#radioDierenBlok1").css('display') == 'none'
     $("#radioDierenBlok1").hide();
     $("#radioDierenBlok2").css('display') == 'none'
     $("#radioDierenBlok2").hide();
     $(".radio").css('display') == 'none'
     $(".radio").hide();
+=======
+>>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
     $(".main").css('display') == 'block'
     $(".main").show();
 
@@ -309,6 +320,7 @@ function checkPassword(){
     }
 }
 
+<<<<<<< HEAD
 function goBack(){
     $("#radioDierenBlok1").css('display') == 'none'
     $("#radioDierenBlok1").hide();
@@ -320,10 +332,16 @@ function goBack(){
     $(".selectBlok").show();
 }
 
+=======
+>>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
 function getIP(){
     var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
 
     //findIP.then(ip => document.write('your ip: ', ip, Date())).catch(e => console.error(e))
 }
 
+<<<<<<< HEAD
 //getIP();
+=======
+//getIP();
+>>>>>>> b6406ac322579faba1f0e3185d2c93bc0a1837ca
