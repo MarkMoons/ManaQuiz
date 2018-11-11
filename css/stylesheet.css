@@ -11,6 +11,10 @@ img {
     display: block;
 }
 
+button {
+    cursor: pointer;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -80,13 +84,13 @@ img {
 #score {
     font-size: 200%;
     position: absolute;
-    top: 1%;
+    top: 12%;
     left: 8%;
 }
 
 #scoreText {
     font-size: 200%;
-    top: 1%;
+    top: 12%;
     left: 1%;
     position: absolute;
 }
@@ -107,12 +111,84 @@ img {
 
 #popupText {
     font-size: 300%;
-    margin-top: 10%;
+    margin-top: 5%;
     color: greenyellow;
 }
 
 #popupKnop {
     width: 30%;
     height: 15%;
+    font-size: 150%;
+}
+
+.selectBlok {
+    position: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+#selectText {
+    font-size: 300%;
+}
+
+#blok1Knop {
     font-size: 200%;
+}
+
+#blok2Knop {
+    font-size: 200%;
+    margin-left: 10%;
+}
+
+#radioText {
+    text-align: center;
+    font-size: 250%;
+    margin-top: 8%;
+}
+
+#startQuiz1 {
+    margin-top: 5%;
+    font-size: 80%;
+}
+
+#startQuiz2 {
+    margin-top: 5%;
+    font-size: 80%;
+}
+
+#radioDierenBlok1 {
+    font-size: 150%;
+    margin-left: 48%;
+}
+
+#radioDierenBlok2 {
+    font-size: 150%;
+    margin-left: 48%;
+}
+
+.passwordVeld {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+
+#passwordText {
+    font-size: 200%;
+}
+
+#aasgierenText {
+    margin-top: -2%;
+}
+
+#terugFoto {
+    max-width: 5%;
+    max-height: 10%;
+    top: 4%;
+    left: 2%;
+    position: absolute;
+    cursor: pointer;
 }

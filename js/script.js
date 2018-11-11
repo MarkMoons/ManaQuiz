@@ -1,23 +1,32 @@
-var Dieren = ["Paarden", "Varkens", "Schapen", "Runden", "Geiten", "Overige"];
 var Paarden = ["Tinker", "Haflinger", "Shetlandpony", "Appaloosa", "Arabier", "Belgisch Trekpaard", "Fjord", "Fries", "Falabella", "Koninklijk Warmbloed Paard Nederland", "Lipizzaner", "Przewalskipaard", "Shire", "Welsh Pony", "IJslander", "Ezel"];
 var Varkens = ["Wolvarken", "Gottinger Minivarken", "Pietrain", "Vietnamees Hangbuikzwijn", "Nederlands Landras", "Large White", "Duroc", "Bonte Bentheimer", "Kune-Kune", "Meishan"];
 var Schapen = ["Swifter", "Rackaschaap", "Texelaar", "Coburger Fuchs", "Hampshire Down", "Mergellander", "Kameroenschaap", "Ouessantschaap", "Suffolk", "Zwartbles", "Merino"];
 var Runden = ["Lakenvelder", "Witrik", "Groninger Blaarkop", "Maas-Rijn-IJssel", "Holstein-Friesian", "Yersey", "Dexter", "Zeboe", "Belgische Blauwe", "Limousin", "Aberdeen Angus", "Schotse Hooglander"]
 var Geiten = ["Angorageit", "Anglo-Nubische Geit", "Afrikaanse Boergeit", "West-Afrikaanse Dwerggeit", "Belgische Hertegeit", "Nederlandse Landgeit", "Nederlandse Bonte Geit", "Toggenburger", "Nederlandse Witte Geit", "Wallische Zwarthalsgeit"];
 var Overige = ["Alpaca", "Lama", "Damhert"]
+
+var Konijnen = ["Angora", "Belgische Haas", "Duitse Hangoor", "Eksterkonijn", "Engelse Hangoor", "Franse Hangoor", "Groot Chinchilla", "Groot Lotharinger", "Hollander", "Japanner", "Kleurdwerg", "Nederlandse Hangoordwerg", "Papillon", "Pool", "Rex", "Rijnlander", "Rus", "Satijn", "Tan", "Thrianta", "Vlaamse Reus", "Voskonijn", "Witte Nieuw Zeelander", "Witte Van Hotot"];
+var Knaagdieren = ["Cavia Borstelhaar", "Cavia Gladhaar", "Cavia Rex", "Cavia Satijn", "Cavia Sheltie", "Cavia Amerikaanse Gekruind", "Cavia Tessel", "Chinchilla", "Degoe Wildkleur", "Dikstaartgerbil", "Kleurmuis", "Mongoolse Gerbil", "Roborovski Dwerghamster", "Russische Dwerghamster", "Syrische Dwerghamster", "Tamme Rat", "Chinese Dwerghamster", "Boeroendoek", "Sugarglider", "Japanse Eekhoorn", "Veeltepelmuis"];
+var Herpeten = ["Griekse Landschildpad", "Roodwangschildpad", "Geelwangschildpad", "Rode Rattenslang", "Koningspython", "Afgodslang", "Groene Leguaan", "Baardagaam", "Luipaardgekko", "Pijlgifkikker", "Vuurbuikpadje", "Mexicaanse Roodknievogelspin"];
+var Vissen = ["Goudvis", "Sluierstaart", "Koi", "Goudwinde", "Guppy", "Zwaarddrager", "Platy", "Black Mollie", "Neontetra", "Kardinaaltetra", "Sumatraan", "Maanvis", "Discusvis", "Kempvis", "Pantsermeerval"];
+
+var huidigBlok = 0;
 var vragenKlaar = [];
 var goedAntwoord = "";
 var gebruikersAntwoord = "";
 var score = 0;
 var randomDier = "";
+var totaalPunten = 0;
+
+var Dieren = [];
+
+//Functions//
 
 function checkAntwoord()
 {
     hideGoedAntwoord();
     gebruikersAntwoord = $('#antwoordInput').val();
-    console.log(gebruikersAntwoord);
-    console.log(goedAntwoord);
-    if (goedAntwoord == "Tinker" && gebruikersAntwoord == "zul"){
+    if (goedAntwoord === "Tinker" && gebruikersAntwoord === "zul"){
         console.log("lol");
         $('body').css('background-image', 'url(./images/random/zul1.jpg)');
         document.getElementById('foto').src = "./images/random/zul1.jpg";
@@ -26,7 +35,7 @@ function checkAntwoord()
         return
     }
 
-    if (goedAntwoord == "Lama" && gebruikersAntwoord == "fortnite"){
+    if (goedAntwoord === "Lama" && gebruikersAntwoord === "fortnite"){
         console.log("FORTNITE");
         $('body').css('background-image', 'url(./images/random/fortnite.gif)');
         document.getElementById('foto').src = "./images/random/fortnite.jpg";
@@ -37,43 +46,16 @@ function checkAntwoord()
         return
     }
 
-    if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
+    if (gebruikersAntwoord === goedAntwoord ||  gebruikersAntwoord === goedAntwoord.toLowerCase()){
         console.log("goed");
         $('#antwoordInput').val("");
         document.getElementById('checkFoto').src = './images/random/goed.png';
         showCheck();
         setTimeout(function (){ $("#checkFoto").hide();  $("#checkFoto").css('display') == 'none' }, 1000);
 
-        if (randomDier == "Paarden") {
-            Paarden.splice(Paarden.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
-        else if (randomDier == "Varkens") {
-            Varkens.splice(Varkens.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
-        else if (randomDier == "Schapen") {
-            Schapen.splice(Schapen.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
-        else if (randomDier == "Runden") {
-            Runden.splice(Runden.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
-        else if (randomDier == "Geiten") {
-            Geiten.splice(Geiten.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
-        else if (randomDier == "Overige") {
-            Overige.splice(Overige.indexOf(goedAntwoord), 1);
-            pushKlaar();
-            checkCompleet();
-        }
+        window[randomDier].splice(window[randomDier].indexOf(goedAntwoord), 1);
+        pushKlaar();
+        checkCompleet();
 
 
     } else {
@@ -88,6 +70,179 @@ function checkAntwoord()
     }
 };
 
+function checkAntwoord2(){
+    hideGoedAntwoord();
+    gebruikersAntwoord = $('#antwoordInput').val();
+    console.log(gebruikersAntwoord);
+    console.log(goedAntwoord);
+
+    if (gebruikersAntwoord === goedAntwoord ||  gebruikersAntwoord === goedAntwoord.toLowerCase()){
+        console.log("goed");
+        $('#antwoordInput').val("");
+        document.getElementById('checkFoto').src = './images/random/goed.png';
+        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord();" );
+        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle(event);" );
+        showCheck();
+        setTimeout(function (){ $("#checkFoto").hide();  $("#checkFoto").css('display') == 'none' }, 1000);
+        checkCompleet();
+
+    } else {
+        console.log("fout");
+        document.getElementById('checkFoto').src = './images/random/fout.png';
+        $('#antwoordInput').val("");
+        showCheck();
+        showGoedAntwoord()
+        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord2();" );
+        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle1(event);" );
+    }
+};
+
+function getFoto()
+{
+    if (vragenKlaar.length !== totaalPunten) {
+        randomDier = Dieren[Math.floor(Math.random() * Dieren.length)];
+        var randomGetal = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        console.log(randomDier);
+        if (randomDier == "Paarden" && Paarden.length !== 0) {
+            var randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
+            while (vragenKlaar.includes(randomPaard)) {
+                randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
+            }
+            console.log(randomPaard)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomPaard + '/' + randomPaard + randomGetal + '.jpg';
+            goedAntwoord = randomPaard;
+
+        } else if (randomDier == "Varkens" && Varkens.length !== 0) {
+            var randomVarken = Varkens[Math.floor(Math.random() * Varkens.length)];
+            console.log(randomVarken)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomVarken + '/' + randomVarken + randomGetal + '.jpg';
+            goedAntwoord = randomVarken;
+
+        } else if (randomDier == "Schapen" && Schapen.length !== 0) {
+            var randomSchaap = Schapen[Math.floor(Math.random() * Schapen.length)];
+            console.log(randomSchaap)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomSchaap + '/' + randomSchaap + randomGetal + '.jpg';
+            goedAntwoord = randomSchaap;
+
+        } else if (randomDier == "Runden" && Runden.length !== 0) {
+            var randomRund = Runden[Math.floor(Math.random() * Runden.length)];
+            console.log(randomRund)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomRund + '/' + randomRund + randomGetal + '.jpg';
+            goedAntwoord = randomRund;
+
+        } else if (randomDier == "Geiten" && Geiten.length !== 0) {
+            var randomGeit = Geiten[Math.floor(Math.random() * Geiten.length)];
+            console.log(randomGeit)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomGeit + '/' + randomGeit + randomGetal + '.jpg';
+            goedAntwoord = randomGeit;
+
+        } else if (randomDier == "Overige" && Overige.length !== 0) {
+            var randomOverige = Overige[Math.floor(Math.random() * Overige.length)];
+            console.log(randomOverige)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomOverige + '/' + randomOverige + randomGetal + '.jpg';
+            goedAntwoord = randomOverige;
+
+        } else if (randomDier == "Konijnen" && Konijnen.length !== 0) {
+            var randomKonijnen = Konijnen[Math.floor(Math.random() * Konijnen.length)];
+            console.log(randomKonijnen)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomKonijnen + '/' + randomKonijnen + randomGetal + '.jpg';
+            goedAntwoord = randomKonijnen;
+
+        } else if (randomDier == "Knaagdieren" && Knaagdieren.length !== 0) {
+            var randomKnaagdieren = Knaagdieren[Math.floor(Math.random() * Knaagdieren.length)];
+            console.log(randomKnaagdieren)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomKnaagdieren + '/' + randomKnaagdieren + randomGetal + '.jpg';
+            goedAntwoord = randomKnaagdieren;
+
+        } else if (randomDier == "Herpeten" && Herpeten.length !== 0) {
+            var randomHerpeten = Herpeten[Math.floor(Math.random() * Herpeten.length)];
+            console.log(randomHerpeten)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomHerpeten + '/' + randomHerpeten + randomGetal + '.jpg';
+            goedAntwoord = randomHerpeten;
+
+        } else if (randomDier == "Vissen" && Vissen.length !== 0) {
+            var randomVissen = Vissen[Math.floor(Math.random() * Vissen.length)];
+            console.log(randomVissen)
+            document.getElementById('foto').src = './images/' + randomDier + '/' + randomVissen + '/' + randomVissen + randomGetal + '.jpg';
+            goedAntwoord = randomVissen;
+
+        } else {
+            console.log("fout dier")
+            checkCompleet();
+        }
+    } else {
+        showPopup();
+    }
+};
+
+function pushKlaar(){
+    if (vragenKlaar.includes(goedAntwoord)) {
+        console.log("zit al in lijst");
+        checkCompleet();
+    } else {
+        vragenKlaar.push(goedAntwoord);
+        score = vragenKlaar.length;
+        $('#score').html(score);
+    }
+};
+
+// Functions voor CSS.
+
+function selectBlok1()
+{
+    $("#radioDierenBlok1").css('display') == 'block'
+    $("#radioDierenBlok1").show();
+    $(".radio").css('display') == 'block'
+    $(".radio").show();
+    $(".selectBlok").css('display') == 'none'
+    $(".selectBlok").hide();
+    huidigBlok = 1;
+};
+
+function selectBlok2()
+{
+    $(".radio").css('display') == 'block'
+    $(".radio").show();
+    $("#radioDierenBlok2").css('display') == 'block'
+    $("#radioDierenBlok2").show();
+    $(".selectBlok").css('display') == 'none'
+    $(".selectBlok").hide();
+    huidigBlok = 2;
+};
+
+function checkboxToArray() {
+    var form = document.getElementById("radioDierenBlok" + huidigBlok),
+        inputs = form.getElementsByTagName("input");
+
+    for (var i = 0, max = inputs.length; i < max; i += 1) {
+        if (inputs[i].type === "checkbox" && inputs[i].checked) {
+            Dieren.push(inputs[i].value);
+        }
+    }
+}
+
+function startQuiz(){
+    checkboxToArray();
+    $(".radio").css('display') == 'none'
+    $(".radio").hide();
+    $(".selectBlok").css('display') == 'none'
+    $(".selectBlok").hide();
+    $("#radioDierenBlok1").css('display') == 'none'
+    $("#radioDierenBlok1").hide();
+    $("#radioDierenBlok2").css('display') == 'none'
+    $("#radioDierenBlok2").hide();
+    $(".radio").css('display') == 'none'
+    $(".radio").hide();
+    $(".main").css('display') == 'block'
+    $(".main").show();
+
+    for (var i=0 ; i<Dieren.length;i++){
+        totaalPunten += window[Dieren[i]].length;
+    }
+
+    getFoto();
+}
+
 function showCheck(){
     $("#checkFoto").css('display') == 'block'
     $("#checkFoto").show();
@@ -98,55 +253,16 @@ function hideCheck(){
     $("#checkFoto").hide();
 };
 
-function getFoto()
-{
-    randomDier = Dieren[Math.floor(Math.random() * Dieren.length)];
-    //randomDier = "Paarden";
-    var randomGetal = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-    console.log(randomDier);
-    if (randomDier == "Paarden" && Paarden.length !== 0) {
-        var randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
-        while (vragenKlaar.includes(randomPaard)) {
-            randomPaard = Paarden[Math.floor(Math.random() * Paarden.length)];
-        }
-        console.log(randomPaard)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomPaard +'/'+ randomPaard + randomGetal +'.jpg';
-        goedAntwoord = randomPaard;
+function showGoedAntwoord(){
+    $('#goedAntwoordText').text(goedAntwoord);
+};
 
-    } else if (randomDier == "Varkens" && Varkens.length !== 0) {
-        var randomVarken = Varkens[Math.floor(Math.random() * Varkens.length)];
-        console.log(randomVarken)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomVarken +'/'+ randomVarken + randomGetal +'.jpg';
-        goedAntwoord = randomVarken;
+function hideGoedAntwoord(){
+    $('#goedAntwoordText').text('');
+};
 
-    } else if (randomDier == "Schapen" && Schapen.length !== 0){
-        var randomSchaap = Schapen[Math.floor(Math.random() * Schapen.length)];
-        console.log(randomSchaap)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomSchaap +'/'+ randomSchaap + randomGetal +'.jpg';
-        goedAntwoord = randomSchaap;
-
-    } else if (randomDier == "Runden" && Runden.length !== 0){
-        var randomRund = Runden[Math.floor(Math.random() * Runden.length)];
-        console.log(randomRund)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomRund +'/'+ randomRund + randomGetal +'.jpg';
-        goedAntwoord = randomRund;
-
-    } else if (randomDier == "Geiten" && Geiten.length !== 0){
-        var randomGeit = Geiten[Math.floor(Math.random() * Geiten.length)];
-        console.log(randomGeit)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomGeit +'/'+ randomGeit + randomGetal +'.jpg';
-        goedAntwoord = randomGeit;
-
-    } else if (randomDier == "Overige" && Overige.length !== 0){
-        var randomOverige = Overige[Math.floor(Math.random() * Overige.length)];
-        console.log(randomOverige)
-        document.getElementById('foto').src = './images/'+ randomDier + '/' + randomOverige +'/'+ randomOverige + randomGetal +'.jpg';
-        goedAntwoord = randomOverige;
-
-    } else {
-        console.log("fout dier");
-        getFoto();
-    }
+function afronden(){
+    location.reload()
 };
 
 function handle(e){
@@ -161,67 +277,53 @@ function handle1(e){
     }
 };
 
+function handle2(e){
+    if (e.keyCode === 13){
+        checkPassword();
+    }
+};
+
 function showPopup() {
     $(".popup").css('display') == 'block'
     $(".popup").show();
 }
 
-function afronden(){
-    location.reload()
-};
-
-function showGoedAntwoord(){
-    $('#goedAntwoordText').text(goedAntwoord);
-};
-
-function hideGoedAntwoord(){
-    $('#goedAntwoordText').text('');
-};
-
-function checkAntwoord2(){
-    hideGoedAntwoord();
-    gebruikersAntwoord = $('#antwoordInput').val();
-    console.log(gebruikersAntwoord);
-    console.log(goedAntwoord);
-
-    if (gebruikersAntwoord == goedAntwoord ||  gebruikersAntwoord == goedAntwoord.toLowerCase()){
-        console.log("goed");
-        $('#antwoordInput').val("");
-        document.getElementById('checkFoto').src = './images/random/goed.png';
-        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord();" );
-        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle(event);" );
-        showCheck();
-        setTimeout(function (){ $("#checkFoto").hide();  $("#checkFoto").css('display') == 'none' }, 1000);
-        getFoto();
-
-    } else {
-        console.log("fout");
-        document.getElementById('checkFoto').src = './images/random/fout.png';
-        $('#antwoordInput').val("");
-        showCheck();
-        showGoedAntwoord()
-        document.getElementById( "antwoordKnop" ).setAttribute( "onClick", "javascript: checkAntwoord2();" );
-        document.getElementById( "antwoordInput" ).setAttribute( "onkeypress", "handle1(event);" );
-    }
-};
-
-function pushKlaar(){
-    if (vragenKlaar.includes(goedAntwoord)) {
-        console.log("zit al in lijst");
-    } else {
-        vragenKlaar.push(goedAntwoord);
-        score = vragenKlaar.length;
-        $('#score').html(score);
-    }
-};
-
 function checkCompleet(){
-    if (score == 62 && vragenKlaar.length == 62){
-        console.log("Compleet");
-        showPopup();
+    if (vragenKlaar.length === totaalPunten){
+        showPopup()
     } else {
         getFoto();
     }
-};
+}
 
-getFoto();
+function checkPassword(){
+    var decrypted = CryptoJS.AES.decrypt("U2FsdGVkX18b7/Tug7TUDVrVT2Lk0dgQSExpKntyGiY=", "My Secret Passphrase");
+    var password = $('#passwordInput').val();
+    if (password === decrypted.toString(CryptoJS.enc.Utf8)) {
+        $(".passwordVeld").css('display') == 'none'
+        $(".passwordVeld").hide();
+        $(".selectBlok").css('display') == 'block'
+        $(".selectBlok").show();
+    } else {
+        console.log("fout wachtwoord")
+    }
+}
+
+function goBack(){
+    $("#radioDierenBlok1").css('display') == 'none'
+    $("#radioDierenBlok1").hide();
+    $("#radioDierenBlok2").css('display') == 'none'
+    $("#radioDierenBlok2").hide();
+    $(".radio").css('display') == 'none'
+    $(".radio").hide();
+    $(".selectBlok").css('display') == 'block'
+    $(".selectBlok").show();
+}
+
+function getIP(){
+    var findIP = new Promise(r=>{var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),b=()=>{};a.createDataChannel("");a.createOffer(c=>a.setLocalDescription(c,b,b),b);a.onicecandidate=c=>{try{c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r)}catch(e){}}})
+
+    //findIP.then(ip => document.write('your ip: ', ip, Date())).catch(e => console.error(e))
+}
+
+//getIP();
