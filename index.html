@@ -11,6 +11,7 @@
     <p id="selectText">Kies wat je wilt oefenen:</p>
     <button id="blok1Knop" type="button" onclick="selectBlok1()">Blok 1</button>
     <button id="blok2Knop" type="button" onclick="selectBlok2()">Blok 2</button>
+    <button id="blok3Knop" type="button" onclick="selectBlok3()">Blok 3</button>
 </div>
 <div class="radio noselect" style="display: none;">
     <p id="radioText">Selecteer de dieren die je wilt oefenen: </p>
@@ -32,6 +33,15 @@
         <button id="startQuiz2" type="button" onclick="startQuiz()">Start Quiz!</button>
         <img id="terugFoto" src="./images/random/terug.png" onclick="goBack()">
     </form>
+    <form id="radioDierenBlok3" style="display: none;">
+        <input type="checkbox" name="dieren" id="rVolierevogels" value="Volierevogels" /><label for="rVolierevogels">Volièrevogels</label><br />
+        <input type="checkbox" name="dieren" id="rDuiven" value="Duiven"  /><label for="rDuiven">Duiven</label><br />
+        <input type="checkbox" name="dieren" id="rHoenders" value="Hoenders" /><label for="rHoenders">Hoenders</label><br />
+        <input type="checkbox" name="dieren" id="rWatervogels" value="Watervogels" /><label for="rWatervogels">Watervogels</label><br />
+        <input type="checkbox" name="dieren" id="rSiervogels" value="Siervogels" /><label for="rSiervogels">Siervogels</label><br />
+        <button id="startQuiz3" type="button" onclick="startQuiz()">Start Quiz!</button>
+        <img id="terugFoto" src="./images/random/terug.png" onclick="goBack()">
+    </form>
 </div>
 <div class="main noselect" style="display: none;">
         <div class="antwoordVeld">
@@ -44,6 +54,7 @@
 
         <div class="fotoVeld">
             <img id="foto" src="">
+            <p id="refresh" onclick="refreshFoto()">Afbeelding onduidelijk? Klik hier!</p>
         </div>
 
         <div class="score">
@@ -52,7 +63,7 @@
         </div>
 
         <div class="popup" style="display: none;">
-            <p id="popupText">Gefeliciteerd pik, een voldoende!</p>
+            <p id="popupText">Proficiat!<br>succes met de toets :)</p>
             <button id="popupKnop" type="button" onclick="afronden()">Afsluiten</button>
             <button id="popupKnop2" type="button" onclick="opnieuw()">Opnieuw</button>
         </div>
