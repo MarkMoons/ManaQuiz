@@ -27,7 +27,7 @@ var VissenBackup = Vissen.slice();
 //Dieren blok 3//
 var Volierevogels = ["Kanarie", "Zebravink", "Japanse Meeuw", "Diamantduif", "Chinese Dwergkwartel", "Grasparkiet", "Valkparkiet", "Agapornis Roseicollis", "Agapornis Personata", "Agapornis Fischeri", "Rijstvogel", "Mozambiquesijs", "Roodrugparkiet", "Grijze Roodstaartpapegaai", "Prachtrosella", "Halsbandparkiet", "Bont Boertje", "Lori van de Blauwe Bergen", "Lachduif", "Diamantvink", "Spitsstaartamadine", "Californische Kuifkwartel", "Japanse Kwartel", "Mexicaanse Roodmus", "Gouldsamadine", "Binsenastrilde", "Sijs", "Goudvink", "Putter", "Vink", "Blauwgele Ara", "Geelkuifkaketoe", "Blauwvoorhoofdamazone"];
 var Duiven = ["Nonduif", "Oud-Hollandse Kapucijn", "Oud-Hollandse Meeuw", "Indiase Pauwstaart", "Kingduif", "Hollandse Kropper", "Turkse Tortel"];
-var Hoenders = ["Antwerpse Baardkriel", "Araucana", "Barnevelder", "Brahma", "Chabo", "Hollandse Kriel", "Hollandse Kuifhoen", "Javakriel", "Lakenvelder", "Mergellandhoen", "Nederlandse Sebelpootkriel", "Orpington", "Sebright", "Vorwerkhoen", "Wyandotte", "Zijdehoen"];
+var Hoenders = ["Antwerpse Baardkriel", "Araucana", "Barnevelder", "Brahma", "Chabo", "Hollandse Kriel", "Hollandse Kuifhoen", "Javakriel", "Lakenvelder", "Mergellandhoen", "Nederlandse Sabelpootkriel", "Orpington", "Sebright", "Vorwerkhoen", "Wyandotte", "Zijdehoen"];
 var Watervogels = ["Mandarijneend", "Carolina Eend", "Muskeseend", "Kuifeend", "Wilde Eend", "Indische Loopeend", "Kwaker", "Duitse Pekingeend", "Tamme Kuifeend", "Zwarte Zwaan", "Knobbelzwaan", "Afrikaanse Knobbelgans", "Nijlgans", "Canadese Gans", "Brandgans", "Grauwe Gans", "Toulouse Gans", "Landgans"];
 var Siervogels = ["Blauwe Pauw", "Bosfazant", "Goudfazant", "Bankivahoen", "Kalkoen", "Parelhoen"];
 var VolierevogelsBackup = Volierevogels.slice();
@@ -239,7 +239,7 @@ function pushKlaar(){
     } else {
         vragenKlaar.push(goedAntwoord);
         score = vragenKlaar.length;
-        $('#score').html(score);
+        $('#score').html(score + "/" + totaalPunten);
     }
 };
 
@@ -303,7 +303,7 @@ function startQuiz(){
         for (var i = 0; i < Dieren.length; i++) {
             totaalPunten += window[Dieren[i]].length;
         }
-        $('#totaalPunten').html(totaalPunten);
+        $('#score').html(score + "/" + totaalPunten);
         getFoto();
     }
 }
@@ -339,7 +339,7 @@ function opnieuw(){
     vragenKlaar = [];
     score = 0;
 
-    $('#score').html(score);
+    $('#score').html(score + "/" + totaalPunten);
     $(".popup").css('display') == 'none'
     $(".popup").hide();
 

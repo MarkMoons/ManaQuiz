@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link rel="stylesheet" href="./css/stylesheet.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 900px)" href="./css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 481px) and (max-width: 899px)" href="./css/stylesheetMobileLandscape.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 360px) and (max-width: 480px)" href="./css/stylesheetMobile.css">
     <link rel="shortcut icon" type="image/png" href="./images/random/favicon.png"/>
 </head>
 <body>
@@ -60,7 +62,7 @@
 
         <div class="score">
             <p class="scoreText">Score: </p>
-            <p id="score">0</p> <p class="scoreText">/</p> <p id="totaalPunten">0</p>
+            <p id="score">0</p>
         </div>
 
         <div class="popup" style="display: none;">
